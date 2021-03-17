@@ -1,0 +1,42 @@
+
+
+
+# The following setting is important, do not omit.
+options(stringsAsFactors = FALSE);
+#Read in the female liver data set
+femData = read.csv("A Clases de 6to/Secuencias/LiverFemale3600.csv")
+# Take a quick look at what is in the data set:
+dim(femData)
+
+names(femData)
+
+
+femfr = as.data.frame(t(femData[, -c(1:8)]))
+names(femfr) = femData$substanceBXH
+rownames(femfr) = names(femData)[-c(1:8)]
+
+# checar datos faltantes?
+gsg = goodSamplesGenes(femfr, verbose = 3)
+gsg$allOK
+
+
+
+###########################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
